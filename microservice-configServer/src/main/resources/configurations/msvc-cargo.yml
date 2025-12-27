@@ -1,0 +1,18 @@
+server:
+  port: 9080
+
+spring:
+  application:
+    name: msvc-cargo
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://localhost:1433;databaseName=SERVICIOSARIANA;trustServerCertificate=true
+    username: codel
+    password: 123
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
