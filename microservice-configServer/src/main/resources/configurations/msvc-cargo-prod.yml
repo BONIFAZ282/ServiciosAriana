@@ -1,0 +1,19 @@
+server:
+  port: 9080
+
+spring:
+  application:
+    name: msvc-cargo
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: ${DATABASE_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+eureka:
+  instance:
+    hostname: ${CARGO_HOSTNAME:msvc-cargo.onrender.com}
+    non-secure-port: 80
+  client:
+    service-url:
+      defaultZone: https://${EUREKA_HOSTNAME:msvc-eureka.onrender.com}/eureka/

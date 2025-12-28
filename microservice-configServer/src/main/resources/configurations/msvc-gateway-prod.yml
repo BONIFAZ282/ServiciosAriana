@@ -1,0 +1,41 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: msvc-gateway
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOriginPatterns: "*"
+            allowedOrigins:
+              - "http://localhost:4200"
+              - "https://tu-frontend.vercel.app"  # Tu frontend en producción
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders:
+              - "*"
+            allowCredentials: true
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: cargo
+          uri: lb://msvc-cargo
+          predicates:
+            - Path=/api/cargo/**
+
+eureka:
+  instance:
+    hostname: ${GATEWAY_HOSTNAME:msvc-gateway.onrender.com}
+    non-secure-port: 80
+  client:
+    service-url:
+      defaultZone: https://${EUREKA_HOSTNAME:msvc-eureka.onrender.com}/eureka/
