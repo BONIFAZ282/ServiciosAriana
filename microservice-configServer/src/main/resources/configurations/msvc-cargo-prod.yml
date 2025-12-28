@@ -12,10 +12,10 @@ spring:
 
 eureka:
   instance:
-    hostname: ${CARGO_HOSTNAME:msvc-cargo.onrender.com}
+    hostname: ${CARGO_HOSTNAME:app-cargo.azurewebsites.net}
     prefer-ip-address: false
     non-secure-port: 80
     secure-port: 443
   client:
     service-url:
-      defaultZone: https://${EUREKA_HOSTNAME:msvc-eureka.onrender.com}/eureka/
+      defaultZone: https://${EUREKA_HOSTNAME:app-eureka-server.azurewebsites.net}/eureka/

@@ -34,10 +34,10 @@ spring:
 
 eureka:
   instance:
-    hostname: ${GATEWAY_HOSTNAME:msvc-gateway.onrender.com}
+    hostname: ${GATEWAY_HOSTNAME:app-gateway.azurewebsites.net}
     prefer-ip-address: false
     non-secure-port: 80
     secure-port: 443
   client:
     service-url:
-      defaultZone: https://${EUREKA_HOSTNAME:msvc-eureka.onrender.com}/eureka/
+      defaultZone: https://${EUREKA_HOSTNAME:app-eureka-server.azurewebsites.net}/eureka/
