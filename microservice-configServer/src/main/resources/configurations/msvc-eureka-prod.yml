@@ -8,10 +8,13 @@ spring:
 eureka:
   instance:
     hostname: ${EUREKA_HOSTNAME:msvc-eureka.onrender.com}
-    non-secure-port: 80
     prefer-ip-address: false
+    non-secure-port: 80
+    secure-port: 443
   client:
     register-with-eureka: false
     fetch-registry: false
-    server-url:
+    service-url:
       defaultZone: https://${EUREKA_HOSTNAME:msvc-eureka.onrender.com}/eureka/
+  server:
+    enable-self-preservation: false

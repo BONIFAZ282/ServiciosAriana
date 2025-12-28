@@ -13,7 +13,9 @@ spring:
 eureka:
   instance:
     hostname: ${CARGO_HOSTNAME:msvc-cargo.onrender.com}
+    prefer-ip-address: false
     non-secure-port: 80
+    secure-port: 443
   client:
     service-url:
       defaultZone: https://${EUREKA_HOSTNAME:msvc-eureka.onrender.com}/eureka/

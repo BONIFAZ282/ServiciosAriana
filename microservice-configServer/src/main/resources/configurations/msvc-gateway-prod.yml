@@ -12,7 +12,7 @@ spring:
             allowedOriginPatterns: "*"
             allowedOrigins:
               - "http://localhost:4200"
-              - "https://tu-frontend.vercel.app"  # Tu frontend en producción
+              - "https://tu-frontend.vercel.app"
             allowedMethods:
               - GET
               - POST
@@ -35,7 +35,9 @@ spring:
 eureka:
   instance:
     hostname: ${GATEWAY_HOSTNAME:msvc-gateway.onrender.com}
+    prefer-ip-address: false
     non-secure-port: 80
+    secure-port: 443
   client:
     service-url:
       defaultZone: https://${EUREKA_HOSTNAME:msvc-eureka.onrender.com}/eureka/
