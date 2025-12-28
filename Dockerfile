@@ -2,16 +2,19 @@
 FROM maven:3.9-eclipse-temurin-21 AS build
 WORKDIR /build
 
-# Primero copiar el pom.xml del padre
-COPY ../pom.xml ./pom.xml
+# Copiar el POM padre
+COPY pom.xml ./pom.xml
 
-# Copiar el pom.xml del config-server
-COPY pom.xml ./microservice-configServer/pom.xml
+# Copiar el POM del módulo config-server
+COPY microservice-configServer/pom.xml ./microservice-configServer/pom.xml
 
-# Copiar el código fuente
-COPY src ./microservice-configServer/src
+# Copiar el código fuente del config-server
+COPY microservice-configServer/src ./microservice-configServer/src
 
-# Construir desde el directorio del módulo
+# IMPORTANTE: Instalar el POM padre primero
+RUN mvn -N install -DskipTests
+
+# Construir el módulo config-server
 WORKDIR /build/microservice-configServer
 RUN mvn clean package -DskipTests
 
