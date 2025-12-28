@@ -7,6 +7,10 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'microservice-eureka/**'
+      - 'pom.xml'
+      - '.github/workflows/main_app-eureka-server.yml'
   workflow_dispatch:
 
 jobs:
