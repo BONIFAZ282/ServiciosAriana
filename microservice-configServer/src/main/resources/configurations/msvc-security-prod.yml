@@ -1,0 +1,31 @@
+server:
+  port: 9081
+
+spring:
+  application:
+    name: msvc-security
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: ${DATABASE_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+eureka:
+  instance:
+    hostname: ${CARGO_HOSTNAME:app-security.azurewebsites.net}
+    prefer-ip-address: false
+    non-secure-port: 80
+    secure-port: 443
+  client:
+    service-url:
+      defaultZone: https://${EUREKA_HOSTNAME:app-eureka-server.azurewebsites.net}/eureka/
+
+jwt:
+  secret: ${KEY_JWT}
+  expiration: 1800000 # 30 minutos
+  refresh-expiration: 604800000 # 7 días
+
+security:
+  password:
+    encoder:
+      strength: 12 # Para BCrypt

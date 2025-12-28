@@ -23,6 +23,7 @@
 		<module>microservice-eureka</module>
 		<module>microservice-configServer</module>
 		<module>microservice-cargo</module>
+		<module>microservicie-security</module>
 	</modules>
 
 
