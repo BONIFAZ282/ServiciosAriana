@@ -12,7 +12,7 @@ spring:
 
 eureka:
   instance:
-    hostname: ${CARGO_HOSTNAME:app-security-serviciosariana.azurewebsites.net}
+    hostname: ${SECURITY_HOSTNAME:app-security-serviciosariana.azurewebsites.net}
     prefer-ip-address: false
     non-secure-port: 80
     secure-port: 443

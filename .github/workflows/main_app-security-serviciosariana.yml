@@ -7,6 +7,10 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'microservice-security/**'
+      - 'pom.xml'
+      - '.github/workflows/main_app-security-serviciosariana.yml'
   workflow_dispatch:
 
 jobs:
@@ -60,6 +64,3 @@ jobs:
           app-name: 'app-security-serviciosariana'
           slot-name: 'Production'
           package: '*.jar'
-
-          
-
