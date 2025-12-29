@@ -21,3 +21,13 @@ spring:
 eureka:
   client:
     enabled: false
+
+jwt:
+  secret: test-secret-key-for-testing-purposes-only-not-for-production-use
+  expiration: 1800000
+  refresh-expiration: 604800000
+
+security:
+  password:
+    encoder:
+      strength: 4
